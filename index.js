@@ -1,21 +1,12 @@
-const decreaseBtn = document.getElementById("decreaseBtn");
-const resetBtn = document.getElementById("resetBtn");
-const increaseBtn = document.getElementById("increaseBtn");
-const countLabel = document.getElementById("countLabel");
+// RANDOM NUMBER GENERATOR
 
-let count =0;
+const myButton = document.getElementById("myButton");
+const myLabel = document.getElementById("myLabel");
+const min=1;
+const max =6
+let randomNum;
 
-decreaseBtn.onclick=function(){
-    count--;
-    countLabel.textContent=count;
-}
-
-increaseBtn.onclick=function(){
-    count++;
-    countLabel.textContent=count;
-}
-
-resetBtn.onclick=function(){
-    count=0;
-    countLabel.textContent=count;
+myButton.onclick=function(){
+    randomNum= Math.floor(Math.random()*(max-min))+min;
+    myLabel.textContent=randomNum;
 }
