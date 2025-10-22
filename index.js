@@ -1,36 +1,25 @@
-// Number Guessing Game
+// Temperature Converter
 
-const minNum = 1;
-const maxNum = 100;
-const correctNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+function convert(){
+    const toFahrenheitBtn = document.getElementById("toFahrenheit");
+    const toCelsiusBtn = document.getElementById("toCelsius");
+    let parag = document.getElementById("result");
+    let input = document.getElementById("textBox");
+    let temp;
+    temp = Number(input.value);
 
-let attemps = 0;
-let guess;
-let running = true;
 
-while (running) {
-    guess = window.prompt(`Guess a number between ${minNum} and ${maxNum}:`);
-    guess = Number(guess);
-    attemps++;
-
-    if(attemps  ==5) {
-        window.alert(`Sorry, you've exceeded the maximum number of attempts. The correct number was ${correctNum}.`);
-        break;
+    if(toFahrenheitBtn.checked){
+        temp = temp * (9/5) + 32;
+        parag.textContent = `${temp.toFixed(2)} °F`;
+    }
+    else if(toCelsiusBtn.checked){
+        temp = (temp -32) / (9/5);
+        parag.textContent = `${temp.toFixed(2)} °C`;
     }
 
-    if (guess < minNum || guess > maxNum || isNaN(guess)) {
-        window.alert(`Please enter a number between ${minNum} and ${maxNum}.`);
-    }
-    else if (guess < correctNum) {
-        window.alert("Too low! Try again.");
-    }
-    else if (guess > correctNum) {
-        window.alert("Too high! Try again.");
-    }
-    else {
-        window.alert(`Congratulations! You guessed the correct number ${correctNum} in ${attemps} attempts.`);
-        running = false;
-    }
+    
+
+    
 
 }
-
